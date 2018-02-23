@@ -1,0 +1,17 @@
+{
+  "name": "pkg_info__backend",
+  "version": "1.0.0",
+  "description": "Backend for the Reaktor dev challenge",
+  "main": "index.js",
+  "scripts": {
+    "develop": "node --debug index.js",
+    "serve": "node index.js"
+  },
+  "author": "Vincent De Feo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "ramda": "^0.25.0"
+  }
+}

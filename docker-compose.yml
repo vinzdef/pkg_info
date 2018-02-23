@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+    backend:
+
+        container_name: backend
+        build: ./containers/backend/
+        command: npm run serve
+
+        read_only: true
+        volumes:
+            - ./volumes/data/:/data
+            - ./containers/backend:/backend/
+
+        ports:
+            - "8000:8000"
+
+    frontend:
+
+        container_name: frontend
+        build: ./containers/frontend
+        command: npm run develop
+
+        volumes:
+            - ./volumes/static:/static/
+            # - ./containers/frontend:/frontend/
+
+        ports:
+            - "3000:3000"

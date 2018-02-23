@@ -1,0 +1,13 @@
+html, body, #root {
+    display: block;
+    margin: 0;
+    width: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+@media (min-width: 1440px) {
+    font-size: 14px;
+}
