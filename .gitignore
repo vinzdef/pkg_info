@@ -35,4 +35,5 @@ npm-debug.log
 
 #ngrok
 ngrok
-volumes/
+
+volumes/static/
