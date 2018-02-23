@@ -1,7 +1,6 @@
 const fs = require('fs')
 const R = require('ramda')
 
-//Note: I never used Ramda (or something even close) before so I had to understand it overnight.
 
 module.exports = class DpkgStatus {
     constructor(filename) {
@@ -20,11 +19,13 @@ module.exports = class DpkgStatus {
     }
 
     _parsePackages(file) {
-        const toPackages = R.compose(R.map(this._parsePackage), R.split('\n\n'));
+        const rejectEmpty = R.reject(s => s == '');
+        const toPackages = R.compose(R.map(this._parsePackage), rejectEmpty, R.split('\n\n'));
         return toPackages(file);
     }
 
     _parsePackage(p) {
+        //Note: I never used Ramda (or something even close) before so I had to understand it overnight.
         const toLines = R.split('\n');
 
         const propReducer = function(acc, value) {
@@ -37,15 +38,20 @@ module.exports = class DpkgStatus {
         }
 
         const toSegments = R.reduce(propReducer, []);
-        const toKeyValue = R.compose(R.fromPairs(), R.of(), R.slice(1, 3), R.match(/(.+?):\s(.*)/));
-        const toPackage = R.compose(R.mergeAll, R.map(toKeyValue), toSegments, toLines);
+        const toKeyValuePairList = R.compose(
+            R.fromPairs(),
+            R.of(),
+            R.slice(1, 3),
+            R.match(/(.+?):\s(.*)/)
+        );
 
-        const cleanup = R.compose(R.trim, R.replace(/(\(.*\))/, ''));
-        const breakDependencies = R.compose(R.map(cleanup), R.chain(R.split('|')), R.split(','));
+        const toPackage = R.compose(R.mergeAll, R.map(toKeyValuePairList), toSegments, toLines);
 
         const pack = toPackage(p);
 
         if (pack['Depends']) {
+            const cleanup = R.compose(R.trim, R.replace(/(\(.*\))/, ''));
+            const breakDependencies = R.compose(R.map(cleanup), R.chain(R.split('|')), R.split(','));
             pack['Depends'] = breakDependencies(pack['Depends'])
         }
 
