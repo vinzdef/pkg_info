@@ -14,15 +14,17 @@ module.exports = class Backend {
 
     listen(port) {
         this._express.listen(port);
-        console.info(`[BE] Listening on ${port}`);
+        console.info(`[BACKEND] Listening on ${port}`);
     }
 
     _listing(req, res) {
+        console.log('listing')
         const listing = this._dpkgStatus.getListing();
         res.send(JSON.stringify(listing));
     }
 
     _detail(req, res) {
+        console.log('listing')
         const {name} = req.params;
         const match = this._dpkgStatus.lookup(name);
         res.send(JSON.stringify(match));
