@@ -1,5 +1,5 @@
 const config = {
-    API_URL: 'http://localhost:8080/api/',
+    API_URL: 'http://0.0.0.0:8080/api/',
     PACKAGES_ENDPOINT: 'packages/'
 };
 
