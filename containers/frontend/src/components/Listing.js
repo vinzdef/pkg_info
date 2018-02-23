@@ -10,15 +10,15 @@ export default class Listing extends React.Component {
 
         const alphabeticCompare = (a, b) => {
             if (a < b) {
-                return 1;
-            } else if (a > b) {
                 return -1;
+            } else if (a > b) {
+                return 1;
             }
 
             return 0;
         };
 
-        const orderPackages = R.compose(R.reverse, R.sort(alphabeticCompare));
+        const orderPackages = R.compose(R.sort(alphabeticCompare));
 
         const makeLinks = R.map(p =>
             <ListingItem key={p} name={p}/>
