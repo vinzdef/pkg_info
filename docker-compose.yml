@@ -6,7 +6,7 @@ services:
 
         container_name: backend
         build: ./containers/backend/
-        command: npm run serve
+        command: npm run develop
 
         read_only: true
         volumes:
@@ -23,8 +23,24 @@ services:
         build: ./containers/frontend
         command: npm run develop
 
-        volumes:
-            - ./volumes/static:/static/
-
         ports:
             - "3000:3000"
+
+    nginx:
+
+        container_name: nginx
+        image: nginx
+        restart: always
+        volumes:
+            - ./config/nginx_dev:/etc/nginx/conf.d/
+
+        ports:
+            - "8080:8080"
+
+        depends_on:
+            - backend
+            - frontend
+
+        links:
+            - backend:backend
+            - frontend:frontend

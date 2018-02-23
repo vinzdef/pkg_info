@@ -4,7 +4,7 @@
   "description": "Backend for the Reaktor dev challenge",
   "main": "index.js",
   "scripts": {
-    "develop": "node --debug index.js",
+    "develop": "node index.js",
     "serve": "node index.js"
   },
   "author": "Vincent De Feo",
