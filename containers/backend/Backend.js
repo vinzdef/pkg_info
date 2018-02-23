@@ -18,13 +18,11 @@ module.exports = class Backend {
     }
 
     _listing(req, res) {
-        console.log('listing')
         const listing = this._dpkgStatus.getListing();
         res.send(JSON.stringify(listing));
     }
 
     _detail(req, res) {
-        console.log('listing')
         const {name} = req.params;
         const match = this._dpkgStatus.lookup(name);
         res.send(JSON.stringify(match));
