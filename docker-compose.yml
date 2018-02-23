@@ -14,8 +14,8 @@ services:
             - ./containers/backend:/backend/
             - /backend/node_modules
 
-        ports:
-            - "8000:8000"
+        expose:
+            - 8000
 
     frontend:
 
@@ -23,8 +23,8 @@ services:
         build: ./containers/frontend
         command: npm run develop
 
-        ports:
-            - "3000:3000"
+        expose:
+            - 3000
 
     nginx:
 
