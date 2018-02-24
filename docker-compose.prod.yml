@@ -3,7 +3,7 @@ version: '3'
 services:
 
     backend:
-        command: npm run serve
+        command: npm run listen
 
     frontend:
         command: npm run build
