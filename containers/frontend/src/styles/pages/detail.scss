@@ -1,3 +1,34 @@
 .detailPage {
-
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
+.detail {
+    padding: 1rem 0;
+}
+
+.detailTitle {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.detailSection {
+    margin-bottom: 2rem;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.detailSectionTitle {
+    display: block;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.detailSectionContent {
+    margin: 0;
+    font-family: monospace;
+}
+

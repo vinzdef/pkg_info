@@ -12,7 +12,7 @@ const listingReducer = (state = {}, action) => {
 
 function detailReducer(state = null, action) {
     switch (action.type) {
-        case types.FETCH_LISITNG_SUCCESS:
+        case types.FETCH_DETAIL_SUCCESS:
             return action.detail;
         default:
             return state;
