@@ -4,3 +4,14 @@
     min-height: 100vh;
     background-color: #FF5544;
 }
+
+.appContent {
+    min-height: 3rem;
+
+    margin: 1rem;
+    padding: 0 1rem;
+    background: #cacaca;
+
+    border-radius: 3px;
+    box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
+}
