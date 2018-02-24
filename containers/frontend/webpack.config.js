@@ -13,7 +13,6 @@ module.exports = {
         'react-hot-loader/patch',
         path.join(__dirname, 'src/index.js')
     ],
-    watchOptions: { poll: true },
     output: {
         path: '/static/',
         filename: '[name].js',

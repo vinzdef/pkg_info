@@ -1,0 +1,28 @@
+.packageLink {
+    display: inline-block;
+    position: relative;
+    min-height: 2rem;
+    font-size: 1rem;
+
+    color: #2b2b2b;
+    text-decoration: none;
+    font-family: monospace;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0.7em;
+        right: 0;
+        height: 1px;
+        background: currentColor;
+        transform-origin: center 30%;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+}
+
+.packageLink:hover:before {
+    transform: scaleY(5);
+    color: #FF5544;
+}

@@ -10,6 +10,7 @@ new WebpackDevServer(webpack(config), {
     quiet: false,
     noInfo: false,
     watchOptions: {poll: true},
+    public: true,
     stats: {
         assets: false,
         colors: true,

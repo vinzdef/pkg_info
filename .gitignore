@@ -37,3 +37,4 @@ npm-debug.log
 ngrok
 
 volumes/static/
+volumes/static/data/dpkg_status

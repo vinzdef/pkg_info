@@ -8,19 +8,10 @@ services:
     frontend:
         command: npm run build
 
-    nginx:
-        container_name: nginx
-        image: nginx
-        restart: always
         volumes:
-            - ./config/nginx:/etc/nginx/conf.d/
             - ./volumes/static:/static/
 
-        ports:
-            - "8080:8080"
-
-        depends_on:
-            - backend
-
-        links:
-            - backend:backend
+    nginx:
+        volumes:
+            - ./volumes/static:/static/
+            - ./config/nginx_prod:/etc/nginx/conf.d/
