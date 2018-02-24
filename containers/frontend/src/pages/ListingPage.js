@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchListing } from '../actions/listingActions';
 
 import Listing from '../components/Listing';
-import {listingPage, listingTitle, listingSubtitle, listingHeader} from '../styles/pages/listing.scss';
+import {listingPage} from '../styles/pages/listing.scss';
 
 class ListingPage extends React.Component {
 

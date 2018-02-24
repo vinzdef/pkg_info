@@ -27,6 +27,7 @@ export default class Listing extends React.Component {
         const packagesToLinks = R.compose(makeLinks, orderPackages);
 
         const links = packagesToLinks(packages);
+
         return <div className={listing}>
             {
                 links
