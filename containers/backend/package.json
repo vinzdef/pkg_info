@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "node index.js",
-    "serve": "node index.js"
+    "listen": "node index.js"
   },
   "author": "Vincent De Feo",
   "license": "ISC",
