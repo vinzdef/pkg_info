@@ -6,9 +6,11 @@ module.exports = class DpkgStatus {
     constructor(filename) {
         const file = fs.readFileSync(filename, 'utf8');
         this._packages = this._parsePackages(file);
+        this._packages = this._buildReverseDependencies(this._packages);
     }
 
     lookup(name) {
+        console.info('[Lookup] - {', name, '}');
         const lookup = R.find(R.whereEq({'Package': name}));
         return lookup(this._packages);
     }
@@ -53,9 +55,31 @@ module.exports = class DpkgStatus {
             const cleanup = R.compose(R.trim, R.replace(/(\(.*\))/, ''));
             const breakDependencies = R.compose(R.map(cleanup), R.chain(R.split('|')), R.split(','));
             pack['Depends'] = breakDependencies(pack['Depends'])
+        } else {
+            pack['Depends'] = [];
         }
 
         return pack;
+    }
+
+    _addPackageRevDep(pack) {
+        const name = R.prop('Package')(pack);
+
+        const hasNoDependencies = R.compose(R.isNil, R.prop('Depends'));
+        const cleanPacks = R.reject(hasNoDependencies);
+        const findDepending = R.filter(R.where({
+            'Depends': R.contains(name)
+        }));
+
+        const findRevDep = R.compose(findDepending, cleanPacks);
+        const revDep = findRevDep(this._packages);
+
+        const revDependenciesList = R.map(R.prop('Package'))(revDep);
+        return R.merge(pack, {'Reverse-Dependencies': revDependenciesList});
+    }
+
+    _buildReverseDependencies(packages) {
+        return R.map(this._addPackageRevDep.bind(this), packages);
     }
 }
 
