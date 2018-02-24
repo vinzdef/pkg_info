@@ -16,12 +16,6 @@ class ListingPage extends React.Component {
         const {packages} = this.props;
 
         return <div className={listingPage}>
-
-            <div className={listingHeader}>
-                <h1 className={listingTitle}>PKG_INFO</h1>
-                <h3 className={listingSubtitle}>A list of all packages installed on this very system</h3>
-            </div>
-
             <Listing packages={packages} />
         </div>;
     }
