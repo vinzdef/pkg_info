@@ -65,7 +65,4 @@ The file parsing is done trough `Ramda.js` composed functions.
 I never used such a syntax or library so I had to learn it on the fly.
 
 
-NOTE: Everything has been written by me some boilerplate files like `dev-server.js`, `webpack.config.js`, and `webpack.production.config.js` which are slightly modified versions of a boilerplate.
-
 Enjoy looking at my packages!
-- Vincent
