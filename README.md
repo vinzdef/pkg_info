@@ -1,26 +1,13 @@
 
-#PKG_INFO
-
-Given that one of the evaluation points is future mantainability I choose to adopt modern technologies with properly separated concerns, even if the scope of the assignment was so small.
-
-I didn't use an example file, what you see is what's really installed on the machine that's running the app.
+# PKG_INFO
 
 You can see it in action here: http://159.65.204.100:8080/
-It's hosted on a bespoke Digital Ocean droplet (I will shut it down in max 2 weeks).
 
-The repository is located at:
-https://bitbucket.org/pkg_info/pkg_info
+![listing page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/listing.conf)
 
-Kanban board where I logged times (not super accurate but a good overview):
-https://kanbanflow.com/board/tP5Wj8Qi
+![listing page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/listing.detail)
 
-Both of these links are private so I need to add your email for you to see them.
-
-
-###Running the application
-
-You received a zip file or a link to the main repo.
-Once you have placed those contents in a clean directory you can start the application as follows:
+### Running the application
 
 There are 2 startup scripts under `/commands`.
 
@@ -41,7 +28,7 @@ Run one of the two commands, navigate to http://localhost:8080
 __NOTE__: If you're on a system that does not have (or can't read) `/var/lib/dpkg/status` then you have to place a dummy file under `/volumes/data/dpkg_status` manually before booting the application.
 
 
-###Docker
+### Docker
 
 We have 3 containers:
 
@@ -57,7 +44,7 @@ We have 3 containers:
 On dev it also reverse proxies to `webpack-dev-server`, while on prod it serves the static frontend.
 
 
-###Frontend
+### Frontend
 
 It's structured as follow:
     - The main application markup is injected in the `#root` container by React.
@@ -70,7 +57,7 @@ It's structured as follow:
 - Css is modularized on component level, except some globals
 - HTML is kept to it's bare essentials
 
-###Backend
+### Backend
 
 Backend uses Express as a router and has a simple abstraction to read and parse the file.
 
