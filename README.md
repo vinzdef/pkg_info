@@ -3,9 +3,9 @@
 
 You can see it in action here: http://159.65.204.100:8080/
 
-![listing page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/listing.conf)
+![listing page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/listing.png)
 
-![listing page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/listing.detail)
+![detail page screenshot](https://raw.githubusercontent.com/ghzmdr/pkg_info/master/docs/img/detail.png)
 
 ### Running the application
 
